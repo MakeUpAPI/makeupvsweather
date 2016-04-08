@@ -58,7 +58,7 @@ app.makeup = function(){
 		type: 'GET',
 		success: function(data) {
            addCharacters(data);
-         });
+         },
 ​
          error: function(data) {
            console.log(data);
@@ -75,10 +75,14 @@ app.makeup = function(){
          }
 };
 
+
+
+
 app.init = function() {
+	app.addCharacters();
 	};
 
-
+ 
 
 $(function(){
  app.init();
