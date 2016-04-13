@@ -51,35 +51,29 @@ app.dislayInfo = function(information){
 
 };
 
-app.makeup = function(){
-	$.ajax({ 
-		url: 'https://sheetsu.com/apis/v1.0/3a19b965',
-		dataType: 'json',
-		type: 'GET',
-		success: function(data) {
-           addCharacters(data);
-         },
-​
-         error: function(data) {
-           console.log(data);
-         }
+app.makeupData = function(){
+	    $.ajax({
+	        url: 'https://sheetsu.com/apis/v1.0/3a19b965',
+	        method: 'GET',
+	        dataType: 'json',
+	    }).then(function(data){
+	        console.log(data)
+	        
+	    }); // end of Sheetsu AJAX call
+	
+};
 
-       });
-​
-       addCharacters = function(characters) {
-         var list = $('#characters-list');
-         for(var i=0; i<characters.length; i+=1) {
-           char = characters[i];
-           html = "<li id=" + char.id + "><h3>" + char.name + "</h3><p>Score: " + char.score + "</p></li>";
-           list.append(html);
-         }
+app.lipSitck = function (lipstick){
+	app.lipSitckType = lipstick[index].type
+	console.log(app.lipSitckType);
 };
 
 
 
 
 app.init = function() {
-	app.addCharacters();
+	
+	app.makeupData();
 	};
 
  
