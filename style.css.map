@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"style.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAEA,KACC,eAAW,CAEZ,GACC,YACA,wBAAgB,CAAA","file":"style.css","sourcesContent":["\n\nbody{\n\tbackground:blue;\n}\nh1 {\n\tcolor: green;\n\ttext-transform: uppercase;\n}"],"sourceRoot":"/source/"}
