@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAEA,KACC,kBAAW,CAEZ,GACC,YACA,wBAAgB,CAAA","file":"style.css","sourcesContent":["\n\nbody{\n\tbackground:lightblue;\n}\nh1 {\n\tcolor: green;\n\ttext-transform: uppercase;\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAEA,KACC,kBAAW,CAEZ,GACC,YACA,wBAAgB,CAAA","file":"style.css","sourcesContent":["\r\n\r\nbody{\r\n\tbackground:lightblue;\r\n}\r\nh1 {\r\n\tcolor: green;\r\n\ttext-transform: uppercase;\r\n}"],"sourceRoot":"/source/"}
