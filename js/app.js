@@ -27,7 +27,6 @@ var options = {
 	navigator.geolocation.getCurrentPosition(success, error, options);
 
 // AJAX call to weather API
-
 app.weather = function(lat,long){
 	$.ajax({
 	  url: 'http://api.wunderground.com/api/695d8437df55f0c3/conditions/forecast/alert/q/'+ lat +',' + long +'.json',
@@ -39,41 +38,74 @@ app.weather = function(lat,long){
 	});
 };
 
+// Displaying weather API info onto page
 app.dislayInfo = function(information){
-	var city = $('<h3>').text(information.display_location.full);
-	console.log(city)
-	var temp = $('<h2>').text('Current Tempature '+ Math.floor(information.temp_c) + '°');
-	var feel = $('<h2>').text('Feels Like ' + information.feelslike_c + '°');
-	var icon = $('<img>').attr('src', information.icon_url)
-	var weather = $('<h4>').text(information.icon);
-	var finalAnswer = $('<div>').addClass('weatherResult').append(city,temp, icon, feel, weather);
-	$('#weather').append(finalAnswer);
+	app.city = $('<h3>').text(information.display_location.full);
+	// console.log(city)
+	app.temp = $('<h2>').text('Current Tempature '+ Math.floor(information.temp_c) + '°');
+	app.feel = $('<h2>').text('Feels Like ' + information.feelslike_c + '°');
+	app.icon = $('<img>').attr('src', information.icon_url)
+	app.weather = $('<h4>').text(information.icon);
+	app.finalAnswer = $('<div>').addClass('weatherResult').append(app.city,app.temp, app.icon, app.feel, app.weather);
+	$('#weather').append(app.finalAnswer);
 
 };
 
+// AJAX call to makeup sheetsu
 app.makeupData = function(){
 	    $.ajax({
 	        url: 'https://sheetsu.com/apis/v1.0/3a19b965',
 	        method: 'GET',
 	        dataType: 'json',
 	    }).then(function(data){
-	        console.log(data)
-	        
+	        app.lipstick(data);
+	        console.log(data);
 	    }); // end of Sheetsu AJAX call
 	
 };
 
-app.lipSitck = function (lipstick){
-	app.lipSitckType = lipstick[index].type
-	console.log(app.lipSitckType);
+// app.lipStick = function (lipstick){
+// 	app.lipStickType = lipstick[index].type
+// 	console.log(app.lipStickType);
+// };
+
+
+app.lipstick = function(lipcolor){
+	if(app.temp <= 0 && app.icon === 'clear' && color.type === 'red') {
+		$.each(lipcolor, function(i, color) {
+			var lipStickType= $('<h2>').text(color.name);
+			var lipStickShade =$('<h3>').text(color.type);
+			var makeUpAnswer = $('<div>').append(lipStickType, lipStickShade);
+			console.log(makeUpAnswer)
+			$('#makeUp').append(makeUpAnswer);
+		});
+	}
+	else if (app.temp >= 0 && app.icon === 'clear' && color.type === 'coral'){
+		$.each(lipcolor, function(i, color) {
+			var lipStickType= $('<h2>').text(color.name);
+			var lipStickShade =$('<h3>').text(color.type);
+			var makeUpAnswer = $('<div>').append(lipStickType, lipStickShade);
+			console.log(makeUpAnswer)
+			$('#makeUp').append(makeUpAnswer);
+		});
+	}
+	else {
+		$.each(lipcolor, function(i, color) {
+			var lipStickType= $('<h2>').text(color.name);
+			var lipStickShade =$('<h3>').text(color.type);
+			var makeUpAnswer = $('<div>').append(lipStickType, lipStickShade);
+			console.log(makeUpAnswer)
+			$('#makeUp').append(makeUpAnswer);
+		});
+	}
 };
 
 
 
 
 app.init = function() {
-	
 	app.makeupData();
+	app.lipstick();
 	};
 
  
